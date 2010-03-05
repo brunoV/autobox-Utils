@@ -1,6 +1,7 @@
 package autobox::Utils::ARRAY;
 use strict;
 use warnings;
+require Carp;
 
 sub all {
     require List::MoreUtils;
@@ -66,7 +67,15 @@ sub range {
 }
 
 sub tail {
-    return wantarray ? @{$_[0]}[1..$#{$_[0]}] : [@{$_[0]}[1..$#{$_[0]}]];
+
+    my $last = $#{$_[0]};
+
+    my $first = defined $_[1] ? $last - $_[1] + 1 : 1;
+
+    Carp::croak("Not enough elements in array") if $first < 0;
+
+    # Yeah... avert your eyes
+    return wantarray ? @{$_[0]}[$first .. $last] : [@{$_[0]}[$first .. $last]];
 }
 
 1;
