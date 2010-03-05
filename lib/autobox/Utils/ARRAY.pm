@@ -50,4 +50,20 @@ sub mesh {
     return wantarray ? @mesh : \@mesh;
 }
 
+sub head {
+    my ($list, $n) = @_;
+
+    return $list->[0] if not defined $n;
+
+    my $slice = slice($list, 0, $n - 1);
+
+    return wantarray ? @$slice : $slice;
+}
+
+sub slice {
+    my $list = shift;
+    # the rest of the arguments in @_ are the indices to take
+
+    return wantarray ? @$list[@_] : [@{$list}[@_]];
+}
 1;
