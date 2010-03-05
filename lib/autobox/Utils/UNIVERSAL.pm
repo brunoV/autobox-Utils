@@ -1,4 +1,6 @@
 package autobox::Utils::UNIVERSAL;
+use strict;
+use warnings;
 
 sub is_number   { return }
 sub is_decimal  { return }

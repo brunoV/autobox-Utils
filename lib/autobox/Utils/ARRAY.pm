@@ -1,4 +1,6 @@
 package autobox::Utils::ARRAY;
+use strict;
+use warnings;
 
 use Sub::Exporter -setup => {
     exports => [qw(first grep all any none true false uniq minmax mesh)],

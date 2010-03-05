@@ -1,5 +1,7 @@
 package autobox::Utils::SCALAR;
 require Carp;
+use strict;
+use warnings;
 
 sub title_case {
     my ($string) = @_;

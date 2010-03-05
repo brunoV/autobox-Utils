@@ -1,4 +1,6 @@
 package autobox::Utils;
+use strict;
+use warnings;
 
 use parent 'autobox';
 
