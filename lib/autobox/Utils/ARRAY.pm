@@ -51,13 +51,7 @@ sub mesh {
 }
 
 sub head {
-    my ($list, $n) = @_;
-
-    return $list->[0] if not defined $n;
-
-    my $slice = slice($list, 0, $n - 1);
-
-    return wantarray ? @$slice : $slice;
+    return $_[0]->[0];
 }
 
 sub slice {
