@@ -1,4 +1,4 @@
-package autobox::Utils::UNIVERSAL;
+package autobox::Utils::Universal;
 use strict;
 use warnings;
 

@@ -4,15 +4,16 @@ use warnings;
 
 use parent 'autobox';
 
-require autobox::Utils::ARRAY;
-require autobox::Utils::SCALAR;
-require autobox::Utils::UNIVERSAL;
+require autobox::Utils::Array;
+require autobox::Utils::Scalar;
+require autobox::Utils::Universal;
 
 sub import {
     my $class = shift;
     $class->autobox::import(
-        DEFAULT  => 'autobox::Utils::',
-        UNIVERSAL => 'autobox::Utils::UNIVERSAL',
+        ARRAY     => 'autobox::Utils::Array',
+        SCALAR    => 'autobox::Utils::Scalar',
+        UNIVERSAL => 'autobox::Utils::Universal',
     );
 }
 

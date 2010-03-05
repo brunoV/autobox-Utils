@@ -1,4 +1,4 @@
-package autobox::Utils::SCALAR;
+package autobox::Utils::Scalar;
 require Carp;
 use strict;
 use warnings;

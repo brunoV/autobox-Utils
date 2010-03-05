@@ -1,4 +1,4 @@
-package autobox::Utils::ARRAY;
+package autobox::Utils::Array;
 use strict;
 use warnings;
 require Carp;
