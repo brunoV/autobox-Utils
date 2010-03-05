@@ -2,11 +2,6 @@ package autobox::Utils::ARRAY;
 use strict;
 use warnings;
 
-use Sub::Exporter -setup => {
-    exports => [qw(first grep all any none true false uniq minmax mesh)],
-    groups  => { default => [qw(:all)] }
-};
-
 sub all {
     require List::MoreUtils;
     return List::MoreUtils::all($_[1], @{$_[0]});
