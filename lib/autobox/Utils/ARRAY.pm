@@ -60,4 +60,14 @@ sub slice {
 
     return wantarray ? @$list[@_] : [@{$list}[@_]];
 }
+
+sub range {
+    my ($array, $lower, $upper) = @_;
+
+    my @slice = @{$array}[$lower .. $upper];
+
+    return wantarray ? @slice : \@slice;
+
+}
+
 1;
