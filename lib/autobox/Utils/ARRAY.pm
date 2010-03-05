@@ -5,27 +5,6 @@ use Sub::Exporter -setup => {
     groups  => { default => [qw(:all)] }
 };
 
-sub first {
-    my ( $array, $filter ) = @_;
-
-    # Deep recursion and segfault (lines 90 and 91 in first.t) if we use
-    # the same elegant approach as in grep().
-    if ( ref $filter eq 'Regexp' ) {
-        return List::Util::first( sub { $_ ~~ $filter }, @$array );
-    }
-
-    return List::Util::first( sub { $filter->() }, @$array );
-
-}
-
-sub grep {
-    my ( $array, $filter ) = @_;
-
-    my @result = CORE::grep { $_ ~~ $filter } @$array;
-
-    return wantarray ? @result : \@result;
-}
-
 sub all {
     require List::MoreUtils;
     return List::MoreUtils::all($_[1], @{$_[0]});
