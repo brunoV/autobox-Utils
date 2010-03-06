@@ -1,4 +1,7 @@
 package autobox::Utils;
+
+# ABSTRACT: Additional autoboxed methods for native Perl data types
+
 use strict;
 use warnings;
 
@@ -16,5 +19,39 @@ sub import {
         UNIVERSAL => 'autobox::Utils::Universal',
     );
 }
+
+=head1 SYNOPSIS
+
+    use autobox::Utils;
+
+    my @family = qw(Homer Marge Bart Lisa Maggie);
+
+    my ($chief, @rest) = (@family->head, @family->tail);
+
+    # $chief: 'Homer'
+    # @rest: ['Marge', 'Bart', 'Lisa', 'Maggie'];
+
+    my $salary = "too low";
+    if ( $salary->is_number and $salary > 40_000 ) { say "yay!" }
+
+    my $book_title = " how to be a klutz and still get published      ";
+
+    say $book_title->trim->title_case;
+    # "How To Be A Klutz And Still Get Published"
+
+    ... and more.
+
+=head1 DESCRIPTION
+
+L<autobox::Utils> provides useful methods to native Perl data types. Its
+goal is to complement L<autobox::Core> and L<autobox::List::Util> with
+methods that are frequently desired but can't be found there.
+
+Additionaly, this module will try its best to be compatible as possible
+with L<Moose::Autobox>'s interface, so that you can upgrade graciously
+to L<Moose::Autobox> the moment you don't mind your project depending on
+L<Moose> anymore.
+
+=cut
 
 1;
