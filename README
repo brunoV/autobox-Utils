@@ -29,11 +29,6 @@ DESCRIPTION
     goal is to complement autobox::Core and autobox::List::Util with methods
     that are frequently desired but can't be found there.
 
-    Additionaly, this module will try its best to be compatible as possible
-    with Moose::Autobox's interface, so that you can upgrade graciously to
-    Moose::Autobox the moment you don't mind your project depending on Moose
-    anymore.
-
 AUTHORS
       Bruno Vecchi
       Michael Schwern

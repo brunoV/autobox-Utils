@@ -47,11 +47,6 @@ L<autobox::Utils> provides useful methods to native Perl data types. Its
 goal is to complement L<autobox::Core> and L<autobox::List::Util> with
 methods that are frequently desired but can't be found there.
 
-Additionaly, this module will try its best to be compatible as possible
-with L<Moose::Autobox>'s interface, so that you can upgrade graciously
-to L<Moose::Autobox> the moment you don't mind your project depending on
-L<Moose> anymore.
-
 =cut
 
 1;
