@@ -1,30 +1,68 @@
 package autobox::Utils::Array;
+
+# ABSTRACT: Autoboxed methods for scalars
+
 use strict;
 use warnings;
 require Carp;
 
 sub all {
     require List::MoreUtils;
+
+    my $filter = $_[1];
+
+    if (ref $filter eq 'Regexp') {
+        return List::MoreUtils::all( sub { $_ =~ $filter }, @{$_[0]} );
+    }
+
     return List::MoreUtils::all($_[1], @{$_[0]});
 }
 
 sub any {
     require List::MoreUtils;
+
+    my $filter = $_[1];
+
+    if (ref $filter eq 'Regexp') {
+        return List::MoreUtils::any( sub { $_ =~ $filter }, @{$_[0]} );
+    }
+
     return List::MoreUtils::any($_[1], @{$_[0]});
 }
 
 sub none {
     require List::MoreUtils;
+
+    my $filter = $_[1];
+
+    if (ref $filter eq 'Regexp') {
+        return List::MoreUtils::none( sub { $_ =~ $filter }, @{$_[0]} );
+    }
+
     return List::MoreUtils::none($_[1], @{$_[0]});
 }
 
 sub true {
     require List::MoreUtils;
+
+    my $filter = $_[1];
+
+    if (ref $filter eq 'Regexp') {
+        return List::MoreUtils::true( sub { $_ =~ $filter }, @{$_[0]} );
+    }
+
     return List::MoreUtils::true($_[1], @{$_[0]});
 }
 
 sub false {
     require List::MoreUtils;
+
+    my $filter = $_[1];
+
+    if (ref $filter eq 'Regexp') {
+        return List::MoreUtils::false( sub { $_ =~ $filter }, @{$_[0]} );
+    }
+
     return List::MoreUtils::false($_[1], @{$_[0]});
 }
 
