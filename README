@@ -2,7 +2,7 @@ NAME
     autobox::Utils - Additional autoboxed methods for native Perl data types
 
 VERSION
-    version 1.100650
+    version 0.100650
 
 SYNOPSIS
         use autobox::Utils;
