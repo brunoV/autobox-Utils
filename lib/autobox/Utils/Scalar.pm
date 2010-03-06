@@ -39,6 +39,12 @@ sub center {
     return $char x $lpad . $string . $char x $rpad;
 }
 
+sub trim {
+    my $charset = $_[1];
+
+    return rtrim(ltrim($_[0], $charset), $charset);
+}
+
 sub ltrim {
     my ($string,$trim_charset) = @_;
     $trim_charset = '\s' unless defined $trim_charset;
@@ -53,12 +59,6 @@ sub rtrim {
     my $re = qr/[$trim_charset]*$/;
     $string =~ s/$re//;
     return $string;
-}
-
-sub trim {
-    my $charset = $_[1];
-
-    return rtrim(ltrim($_[0], $charset), $charset);
 }
 
 sub wrap {
