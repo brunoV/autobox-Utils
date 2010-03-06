@@ -197,7 +197,7 @@ Returns the first element from C<@list>.
 Returns all but the first element from C<@list>. In scalar context
 returns an array reference.
 
-Optionally, you can pass number as argument to ask for the last C<$n>
+Optionally, you can pass a number as argument to ask for the last C<$n>
 elements:
 
     @rest = @list->tail(2); # [ 'baz', 'quux' ]
