@@ -8,6 +8,7 @@ Build
 _build
 Build.bat
 cover_db/
+autobox-Utils*
 nytprof*
 *.patch
 .DS_Store
