@@ -116,6 +116,42 @@ sub tail {
     return wantarray ? @{$_[0]}[$first .. $last] : [@{$_[0]}[$first .. $last]];
 }
 
+sub first_idx {
+
+    if (not defined $_[1]) {
+        return 0;
+    }
+    else {
+        my $array = shift;
+
+        my $filter = ref $_[1] eq 'Regexp' ? sub { $_ =~ $_[1] } : $_[1];
+
+        foreach my $i (0 .. $#$array) {
+            return $i if $filter->($array->[$i]);
+        }
+
+        return
+    }
+}
+
+sub last_idx {
+
+    if (not defined $_[1]) {
+        return $#{$_[0]};
+    }
+    else {
+        my $array = shift;
+
+        my $filter = ref $_[1] eq 'Regexp' ? sub { $_ =~ $_[1] } : $_[1];
+
+        foreach my $i ($#$array .. 0) {
+            return $i if $filter->($array->[$i]);
+        }
+
+        return
+    }
+}
+
 =method all
 
     @list->all($regex);
@@ -216,6 +252,29 @@ C<@indices>. In scalar context, returns an array reference.
 Returns a list containing the elements from C<@list> with indices
 ranging from C<$lower_idx> to C<$upper_idx>. Returns an array reference
 in scalar context.
+
+=method last_idx
+
+    my $last_idx = @array->last_idx
+
+Returns C<@array>'s last index. Optionally, takes a Coderef or a Regexp,
+in which case it will return the index of the last element that matches
+such regex or makes the code reference return true. Example:
+
+    my @things = qw(pear poll potato tomato);
+
+    my $last_p = @things->last_idx(qr/^p/); # 2
+
+=method first_idx
+
+    my $first_idx = @array->first_idx; # 0
+
+For simmetry, returns the first index of C<@array>. If passed a Coderef
+or Regexp, it will return the index of the first element that matches.
+
+    my @things = qw(pear poll potato tomato);
+
+    my $last_p = @things->first_idx(qr/^t/); # 3
 
 =cut
 
