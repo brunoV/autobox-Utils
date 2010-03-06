@@ -1,4 +1,7 @@
 package autobox::Utils::Universal;
+
+# ABSTRACT: Autoboxed methods for any data type
+
 use strict;
 use warnings;
 
