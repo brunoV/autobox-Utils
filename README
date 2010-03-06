@@ -1,0 +1,47 @@
+NAME
+    autobox::Utils - Additional autoboxed methods for native Perl data types
+
+VERSION
+    version 1.100650
+
+SYNOPSIS
+        use autobox::Utils;
+
+        my @family = qw(Homer Marge Bart Lisa Maggie);
+
+        my ($chief, @rest) = (@family->head, @family->tail);
+
+        # $chief: 'Homer'
+        # @rest: ['Marge', 'Bart', 'Lisa', 'Maggie'];
+
+        my $salary = "too low";
+        if ( $salary->is_number and $salary > 40_000 ) { say "yay!" }
+
+        my $book_title = " how to be a klutz and still get published      ";
+
+        say $book_title->trim->title_case;
+        # "How To Be A Klutz And Still Get Published"
+
+        ... and more.
+
+DESCRIPTION
+    autobox::Utils provides useful methods to native Perl data types. Its
+    goal is to complement autobox::Core and autobox::List::Util with methods
+    that are frequently desired but can't be found there.
+
+    Additionaly, this module will try its best to be compatible as possible
+    with Moose::Autobox's interface, so that you can upgrade graciously to
+    Moose::Autobox the moment you don't mind your project depending on Moose
+    anymore.
+
+AUTHORS
+      Bruno Vecchi
+      Michael Schwern
+      Scott Walters
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2010 by Bruno Vecchi.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
