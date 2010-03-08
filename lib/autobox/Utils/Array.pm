@@ -118,13 +118,13 @@ sub tail {
 
 sub first_index {
 
-    if (not defined $_[1]) {
+    if (@_ == 1) {
         return 0;
     }
     else {
-        my $array = shift;
+        my ($array, $arg) = @_;
 
-        my $filter = ref $_[1] eq 'Regexp' ? sub { $_ =~ $_[1] } : $_[1];
+        my $filter = ref $arg eq 'Regexp' ? sub { $_[0] =~ $arg } : $arg;
 
         foreach my $i (0 .. $#$array) {
             return $i if $filter->($array->[$i]);
@@ -136,15 +136,15 @@ sub first_index {
 
 sub last_index {
 
-    if (not defined $_[1]) {
+    if (@_ == 1) {
         return $#{$_[0]};
     }
     else {
-        my $array = shift;
+        my ($array, $arg) = @_;
 
-        my $filter = ref $_[1] eq 'Regexp' ? sub { $_ =~ $_[1] } : $_[1];
+        my $filter = ref $arg eq 'Regexp' ? sub { $_[0] =~ $arg } : $arg;
 
-        foreach my $i ($#$array .. 0) {
+        foreach my $i (reverse 0 .. $#$array ) {
             return $i if $filter->($array->[$i]);
         }
 
