@@ -1,6 +1,6 @@
 package autobox::Utils::Array;
 
-# ABSTRACT: Autoboxed methods for scalars
+# ABSTRACT: Autoboxed methods for arrays
 
 use strict;
 use warnings;

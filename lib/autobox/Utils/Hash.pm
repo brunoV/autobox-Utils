@@ -1,4 +1,7 @@
 package autobox::Utils::Hash;
+
+# ABSTRACT: Autoboxed methods for hashes
+
 use strict;
 use warnings;
 require Carp;
